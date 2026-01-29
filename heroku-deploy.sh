@@ -12,7 +12,7 @@ heroku create --buildpack https://github.com/HashNuke/heroku-buildpack-elixir.gi
 heroku buildpacks:add https://github.com/chrismcg/heroku-buildpack-elixir-mix-release
 heroku apps:rename $1
 heroku config:set HOST=${1}.herokuapp.com PORT=443 CANONICAL_URL=https://${1}.herokuapp.com
-heroku addons:create heroku-postgresql:hobby-dev
+heroku addons:create heroku-postgresql:mini
 heroku config:set POOL_SIZE=18
 SEC=$(openssl rand -base64 64 | tr -d '\n')
 heroku config:set SECRET_KEY_BASE=$SEC
